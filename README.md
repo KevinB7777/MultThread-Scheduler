@@ -1,30 +1,34 @@
-# C++17 Multithreaded Task Scheduler  
-*A lightweight thread pool with futures, an interactive CLI shell, and real metrics.*
+# 🚀 C++17 Multithreaded Task Scheduler
 
-## Overview
+*A high-performance thread-pool scheduler with an interactive shell, real metrics, and Google Benchmark validation.*
 
-This project implements a **modern C++17 multithreaded task scheduler** featuring:
+---
 
-- A fixed-size **thread pool**
-- A thread-safe **task queue**
-- A generic `submit()` API returning `std::future<T>`
-- Condition variables & mutex synchronization
-- RAII-safe thread lifecycle management
-- Atomic metrics
-- An **interactive terminal shell**
+## Features
 
-# HOW TO COMPILE
+✔ Modern **C++17 thread pool** with safe shutdown  
+✔ **Task submission with return values** via `std::future<T>`  
+✔ Efficient scheduling with **condition variables + mutexes**  
+✔ Concurrency-safe counters using **atomics**  
+✔ Built-in **performance metrics**:
+- Total submitted / completed
+- Avg & max wait time
+- Avg & max run time  
+✔ **Interactive CLI**: submit jobs *live* from shell  
+✔ **Benchmark suite** for scientific performance testing  
+✔ Designed using **RAII principles** for thread lifetime safety
 
-### **Important:**  
-Because the scheduler is completely header-only,  
-**you compile only `main.cpp`**, but must link pthreads.
+---
 
-Run this exact command:
+## CLI Commands
 
-```bash
-g++ -std=c++17 main.cpp -pthread -O2 -o scheduler_shell
-```clang
-clang++ -std=c++17 main.cpp -pthread -O2 -o scheduler_shell
+Inside the running shell:
 
-Then run:
-./scheduler_shell
+| Command | Description |
+|--------|-------------|
+| `sum N` | Compute sum of 1..N asynchronously |
+| `sleep ms` | Sleep task (simulates blocking) |
+| `metrics` | Display real-time scheduler performance counters |
+| `benchmark` | Run built-in workload benchmark (CPU, memory, mixed) |
+| `help` | Show available commands |
+| `exit` / `quit` | Shutdown scheduler |
